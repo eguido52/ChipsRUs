@@ -22,7 +22,7 @@ export class DetailsComponent implements OnInit {
     private product: ProductsService,
     private route: ActivatedRoute) {
     this.route.params.subscribe( params => this.chip$ = params.id);
-    this.chip$ = {'name': '', 'price': '', 'description': '', 'stock': '', 'imageUrl': ''};
+    //this.chip$ = {'name': '', 'price': '', 'description': '', 'stock': '', 'imageUrl': ''};
     this.cart$ = new Shopcartitem;
     this.temp$ = new Array;
     if (!this.storage.get('cart')) {
