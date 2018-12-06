@@ -1,6 +1,6 @@
 export class Shopcartitem {
-  id: string;
-  name: string;
+  id: String;
+  name: String;
   stock: number;
   price: number;
 
@@ -11,7 +11,7 @@ constructor() {
   this.price = 0;
 
 }
-createshopcartitem(id: string, name: string, stock: number, price: number) {
+createshopcartitem(id: String, name: String, stock: number, price: number) {
   this.id = id;
   this.name = name;
   this.stock = stock;

@@ -7,24 +7,13 @@ import {Shopcartitem} from './shopcartitem.component';
 })
 export class ProductsService {
 
-  chips$: {
-    id: String,
-    name: String,
-    description: String,
-    price: any,
-    stock: any,
-    imageUrl: String
-  };
-
   constructor(private http: HttpClient) {
    }
 
   getChips() {
     return this.http.get('https://chipsvc.herokuapp.com/chips');
   }
-  getChip(chipId) {
-    // this.chips$ = this.http.get('https://chipsvc.herokuapp.com/chip/' + chipId);
-    console.log('Chip: ', this.http.get('https://chipsvc.herokuapp.com/chip/' + chipId));
+  getChip(chipId): any {
     return this.http.get('https://chipsvc.herokuapp.com/chip/' + chipId);
   }
 

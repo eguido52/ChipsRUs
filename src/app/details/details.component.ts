@@ -13,18 +13,19 @@ import {Shopcartitem} from './../shopcartitem.component';
 export class DetailsComponent implements OnInit {
 
   chip$: Object;
-  info$: Object;
+  info$: {'name': String, 'price': any, 'description': String, 'stock': any, 'imageUrl': String};
   cart$: Shopcartitem;
   temp$: Array<Shopcartitem>;
+  infoArr$: Array<Object>;
 
   constructor(@Inject(SESSION_STORAGE) private storage: WebStorageService,
     private router: Router,
     private product: ProductsService,
     private route: ActivatedRoute) {
     this.route.params.subscribe( params => this.chip$ = params.id);
-    //this.chip$ = {'name': '', 'price': '', 'description': '', 'stock': '', 'imageUrl': ''};
     this.cart$ = new Shopcartitem;
     this.temp$ = new Array;
+    this.infoArr$ = new Array;
     if (!this.storage.get('cart')) {
       this.storage.set('cart', new Array);
       console.log('making new cart');
@@ -32,9 +33,11 @@ export class DetailsComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.chip$);
     this.product.getChip(this.chip$).subscribe(
-      product => this.chip$ = product
+      product => this.info$ = product
     );
+    this.infoArr$[0] = this.info$;
   }
 
   addtocart(event) {
