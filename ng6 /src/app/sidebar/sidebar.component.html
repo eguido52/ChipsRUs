@@ -1,0 +1,22 @@
+<nav id="navb" class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a id="sName" class="navbar-brand">Chips R Us</a>
+      <img src="favicon.ico">
+    </div>
+    <ul class="nav navbar-nav">
+        <li><a routerLink="">
+            <i class="material-icons">home</i></a></li>
+      <li><a routerLink="products">
+          <i class="material-icons">restaurant</i></a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li id="username"><a>{{ userName$.userName }}</a></li>
+      <li id="money"><a>{{ userName$.credit }}</a></li>
+      <li><a routerLink="cart">
+          <i class="material-icons">shopping_cart</i></a></li>
+      <li><a routerLink="login">
+        <span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>

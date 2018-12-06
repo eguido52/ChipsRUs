@@ -1,0 +1,22 @@
+
+<div id="background" class="row">
+  <div class="col-xs-offset-2 col-xs-8">
+      <h1>Chips</h1>
+      <ul>
+          <li class="borders" *ngFor="let chip of chips$">
+            <a routerLink="/details/{{chip.id}}">{{ chip.name }}</a>
+            <div class="row">
+              <div class="col-xs-offset-1 col-xs-3">
+                  <li><img class="img-responsive" id="imgs" src="{{ chip.imageUrl }}" alt=""></li>
+              </div>
+              <div class="col-xs-offset-2 col-xs-6">
+                <ul>
+                  <li>Cost: ${{ chip.price }}</li>
+                  <li>Stock: {{ chip.stock }}</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+      </ul>
+  </div>
+</div>

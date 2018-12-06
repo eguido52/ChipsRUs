@@ -1,0 +1,26 @@
+<h1>{{ chip$.name }}</h1>
+
+<div class="row">
+  <div class="col-xs-6">
+    <img class="img-responsive" src="{{ chip$.imageUrl }}" alt="">
+  </div>
+  <div class="col-xs-6">
+    <ul>
+      <li> Cost: ${{ chip$.price }}</li>
+      <li>{{ chip$.description }}</li>
+      <li>Available: {{ chip$.stock }}</li>
+      <div class="form-group">
+        <label for="sel1">Select quantity:</label>
+        <select class="form-control" id="sel1">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+        </select>
+      </div>
+      <form id="chipQuantity">
+        <button routerLink="/cart/" type="button" class="btn btn-primary">Add to Cart</button>
+      </form>
+    </ul>
+  </div>
+</div>
