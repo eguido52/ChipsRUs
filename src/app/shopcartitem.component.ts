@@ -1,15 +1,24 @@
-export class shopcartitem{
-    public name: string;
-    public stock: number;
-    public price: number;
+export class Shopcartitem {
+  id: string;
+  name: string;
+  stock: number;
+  price: number;
 
-  shopcartitem() {
-    this.name = ' ';
-    this.stock = 0;
-    this.price = 0;
+constructor() {
+  this.id = '';
+  this.name = '';
+  this.stock = 0;
+  this.price = 0;
 
-  }
-  getName() {
-    return this.name;
-  }
+}
+createshopcartitem(id: string, name: string, stock: number, price: number) {
+  this.id = id;
+  this.name = name;
+  this.stock = stock;
+  this.price = price;
+
+}
+getName() {
+  return this.name;
+}
 }

@@ -1,9 +1,10 @@
 import { ProductsService } from './../products.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import {FormGroup, FormControl} from '@angular/forms';
-import {shopcartitem} from './../shopcartitem.component';
+import {Shopcartitem} from './../shopcartitem.component';
+import { SESSION_STORAGE, WebStorageService } from 'angular-webstorage-service';
 
 @Component({
   selector: 'app-cart',
@@ -13,17 +14,25 @@ import {shopcartitem} from './../shopcartitem.component';
 export class CartComponent implements OnInit {
 
   chip$: Object;
+  cartitems$: Array<Shopcartitem>;
 
-  constructor(private product: ProductsService, private route: ActivatedRoute) {
-    this.route.params.subscribe( params => this.chip$ = params.id);
+  constructor(@Inject(SESSION_STORAGE) private storage: WebStorageService,
+    private product: ProductsService,
+    private route: ActivatedRoute) {
+    // this.route.params.subscribe( params => this.chip$ = params.id);
+    this.cartitems$ = this.storage.get('cart');
   }
 
   ngOnInit() {
-    this.product.getChip('5c089f6abd2c520004b14176').subscribe(product => this.chip$ = product);
-     this.chip$ = this.product.getchipdata(this.chip$);
+    console.log('moved to cart');
+    let j: any;
+    // tslint:disable-next-line:forin
+    for (j in this.cartitems$) {
+      console.log('hello');
+      console.log(this.cartitems$); // [j]['name'])
+    }
+    // this.prod$ = this.data.getchipdata(this.chip$)
     // console.log(this.data.getchipdata(this.chip$).subscribe(data => this.stuff$ = data))
     // console.log(this.prod$);
-
-
   }
 }
