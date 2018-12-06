@@ -1,14 +1,14 @@
-<h1>{{ chip$.name }}</h1>
+<h1>{{ info$.name }}</h1>
 
 <div class="row">
   <div class="col-xs-6">
-    <img class="img-responsive" src="{{ chip$.imageUrl }}" alt="">
+    <img class="img-responsive" src="{{ info$.imageUrl }}" alt="">
   </div>
   <div class="col-xs-6">
     <ul>
-      <li> Cost: ${{ chip$.price }}</li>
-      <li>{{ chip$.description }}</li>
-      <li>Available: {{ chip$.stock }}</li>
+      <li> Cost: ${{ info$.price }}</li>
+      <li>{{ info$.description }}</li>
+      <li>Available: {{ info$.stock }}</li>
       <div class="form-group">
         <label for="sel1">Select quantity:</label>
         <select class="form-control" id="sel1">
@@ -18,9 +18,39 @@
           <option>4</option>
         </select>
       </div>
-      <form id="chipQuantity">
+      <form id="chipQuantity" class="form" action="" (submit)="addtocart($event)">
+        <div class="form-group">
+            <input type="submit" name="submit" class="btn btn-info btn-md" value="Buy">
+        </div>
+    </form>
+    </ul>
+  </div>
+</div>
+
+
+<!-- <h1>{{ chipProd$.name }}</h1>
+
+<div class="row">
+  <div class="col-xs-6">
+    <img class="img-responsive" src="{{ chipProd$.imageUrl }}" alt="">
+  </div>
+  <div class="col-xs-6">
+    <ul>
+      <li> Cost: ${{ chipProd$.price }}</li>
+      <li>{{ chipProd$.description }}</li>
+      <li>Available: {{ chipProd$.stock }}</li>
+      <div class="form-group">
+        <label for="sel1">Select quantity:</label>
+        <select class="form-control" id="sel1">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+        </select>
+      </div>
+      <form id="chipQuantity" (submit)="addtocart($event)">
         <button routerLink="/cart/" type="button" class="btn btn-primary">Add to Cart</button>
       </form>
     </ul>
   </div>
-</div>
+</div> -->
